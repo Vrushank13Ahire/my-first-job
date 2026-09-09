@@ -11,7 +11,7 @@ pipeline {
     }
     stage ('Test') {
       environment {
-        BUILD_MODE = 'production' // Locally accessible only in this stage
+        BUILD_MODE = 'production' 
       }
       steps {
         sh 'echo $APP_NAME $BUILD_MODE'
