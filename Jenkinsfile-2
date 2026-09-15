@@ -22,5 +22,10 @@ pipeline {
                 }
             }
         }
+         stage ('Approve') {
+steps {
+ input message: 'Test Passes. Deploy to production?'
+}
+}
     }
 }
