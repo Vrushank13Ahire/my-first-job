@@ -2,11 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+        stage ('Build'){
+          steps {
+            echo 'Building'
+          }
+        }
+        stage('Tests') {
             parallel {
                 stage('Unit') {
                     steps {
-                        sh 'echo Running Tests'
+                        sh 'echo Running Unit Tests'
                     }
                 }
 
