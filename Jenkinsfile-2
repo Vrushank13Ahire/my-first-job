@@ -2,13 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage ('Build'){
-          steps {
-            echo 'Building'
-          }
+
+        stage('Build') {
+            steps {
+                echo 'Building'
+            }
         }
+
         stage('Tests') {
             parallel {
+
                 stage('Unit') {
                     steps {
                         sh 'echo Running Unit Tests'
@@ -22,10 +25,11 @@ pipeline {
                 }
             }
         }
-         stage ('Approve') {
-steps {
- input message: 'Test Passes. Deploy to production?'
-}
-}
+
+        stage('Approve') {
+            steps {
+                input message: 'Tests passed. Deploy to production?'
+            }
+        }
     }
 }
